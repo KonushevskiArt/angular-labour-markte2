@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .nav-link {
+    @apply px-4 py-2 dark:hover:bg-white dark:hover:text-slate-950 hover:bg-red-600  text-white transition duration-150;
+  }
+
+  .active-nav-link {
+    @apply dark:bg-slate-200 dark:text-slate-950 bg-red-400;
+  }
+}

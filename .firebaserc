@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lala-markte-labor": {
+      "hosting": {
+        "i18n-angular-lokalise": [
+          "labor-lala-markte-att"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lala-markte-labor"
+  }
+}

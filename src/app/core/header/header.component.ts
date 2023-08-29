@@ -1,0 +1,14 @@
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: []
+})
+export class HeaderComponent {
+
+  @Input() isDarkMode: boolean 
+
+  @Input() toggleThemeMode: () => void 
+
+}
