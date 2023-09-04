@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
-import { AuthComponent } from '../modules/auth/auth.component';
 import { ProfileComponent } from '../modules/profile/profile.component';
 import { SummariesComponent } from '../modules/summaries/summaries.component';
 import { VacanciesComponent } from '../modules/vacancies/vacancies.component';
-import { ModalComponent } from '../shared/modal/modal.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './header/components/navigation/navigation.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,20 +14,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeSwitcherComponent } from './header/components/theme-switcher/theme-switcher.component';
 import { LanguageSwitcherComponent } from './header/components/language-switcher/language-switcher.component';
-
+// import { ModalComponent } from './modal/modal.component';
+import { AuthModule } from '../modules/auth/auth.module';
 
 @NgModule({
   declarations: [
+    // ModalComponent,
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
     NotFoundComponent,
-    AuthComponent,
     SummariesComponent,
     VacanciesComponent,
     ProfileComponent,
-    ModalComponent,
     ThemeSwitcherComponent,
     LanguageSwitcherComponent,
   ],
@@ -38,10 +36,12 @@ import { LanguageSwitcherComponent } from './header/components/language-switcher
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    AuthModule
   ],
   exports: [
-    LayoutComponent
+    LayoutComponent,
+    // ModalComponent
   ]
 })
 export class CoreModule { }
