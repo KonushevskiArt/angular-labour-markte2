@@ -1,1 +1,7 @@
-<p>vacancies works!</p>
+
+<div>
+  <p *ngIf="loading">Loading...</p>
+  <ul *ngIf="!loading" class="flex flex-col gap-4 px-3">
+    <app-vacancy *ngFor="let vacancy of vacancies | async" [data]="vacancy"></app-vacancy>
+  </ul>
+</div>

@@ -6,10 +6,10 @@ export class VacanciesService {
 
   constructor() { }
 
-  vacancies: VacancyModel[] = [
+  private vacancies: VacancyModel[] = [
     {
       title: 'Frontend developer',
-      data: '06.09.2023',
+      date: '06.09.2023',
       description: 'Our company seeking for experienced fronted developer with experience' ,
       workExperience: '1 year',
       requirements: 
@@ -19,7 +19,7 @@ export class VacanciesService {
         'Angular',
         'english'
       ],
-      contactNumber: '+375295555533',
+      contactNumber: '+375-29-555-55-33',
       location: {
         city: 'Minsk',
         street: 'Nemiga',
@@ -31,14 +31,14 @@ export class VacanciesService {
     },
     {
       title: 'driver',
-      data: '04.09.2023',
+      date: '04.09.2023',
       description: 'Taxi service seeking for driver who wanna earn big money' ,
       workExperience: '1 year',
       requirements: 
       [
         'driver license',
       ],
-      contactNumber: '+375294445533',
+      contactNumber: '+375-29-444-55-33',
       location: {
         city: 'Minsk',
         street: 'Voloha',
@@ -51,14 +51,14 @@ export class VacanciesService {
     {
       title: 'строитель',
       workExperience: 'без опыта работы',
-      data: '05.09.2023',
+      date: '05.09.2023',
       description: 'Нужен строитель на стройку',
       
       requirements: 
       [
         'хорошая физическая подготовка',
       ],
-      contactNumber: '+37529222222',
+      contactNumber: '+375-29-222-22-02',
       location: {
         city: 'Минск',
         street: 'Ванеева',
@@ -71,7 +71,7 @@ export class VacanciesService {
   ]
 
   getAll = () => {
-
+    return this.vacancies;
   }
 
   getByKeyWord = () => {

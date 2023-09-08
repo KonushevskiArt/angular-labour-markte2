@@ -1,15 +1,16 @@
+export interface Location {
+  city: string,
+  street: string,
+  house: string
+}
 export interface VacancyModel {
   title: string,
-  data: string,
+  date: string,
   description: string,
   workExperience : string,
   requirements: string[],
   contactNumber: string,
-  location: {
-    city: string,
-    street: string,
-    house: string
-  }
+  location: Location,
   salary: string,
   createdBy: string,
   id: string
