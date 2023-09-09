@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { VacancyModel } from '../../models/vacancy';
+import { Location } from './../../models/vacancy';
 
 @Component({
   selector: 'app-vacancy',
@@ -16,6 +17,7 @@ export class VacancyComponent implements OnInit {
   workExperience: string;
   contactNumber: string;
   date: string;
+  location: Location;
 
   ngOnInit(): void {
     this.title = this.data.title;
@@ -24,6 +26,7 @@ export class VacancyComponent implements OnInit {
     this.workExperience = this.data.workExperience
     this.contactNumber = this.data.contactNumber
     this.date = this.data.date   
+    this.location = this.data.location
     console.log(this.data);
     
   }

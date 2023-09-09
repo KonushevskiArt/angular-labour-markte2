@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
-import { ProfileComponent } from '../modules/profile/profile.component';
-import { SummariesComponent } from '../modules/summaries/summaries.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './header/components/navigation/navigation.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,8 +20,6 @@ import { AuthModule } from '../modules/auth/auth.module';
     FooterComponent,
     NavigationComponent,
     NotFoundComponent,
-    SummariesComponent,
-    ProfileComponent,
     ThemeSwitcherComponent,
     LanguageSwitcherComponent,
   ],

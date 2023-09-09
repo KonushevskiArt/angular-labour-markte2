@@ -24,7 +24,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="navigation-to-profile" datatype="html">
-        <source> Profile </source>
+        <source> Personal cabinet </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/header/components/navigation/navigation.component.html</context>
           <context context-type="linenumber">28,30</context>
