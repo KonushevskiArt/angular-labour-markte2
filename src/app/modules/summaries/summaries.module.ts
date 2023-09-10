@@ -4,6 +4,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { SummariesPageComponent } from './pages/summaries-page/summaries-page.component';
 import { SummaryPageComponent } from './pages/summary-page/summary-page.component';
 import { RouterModule } from '@angular/router';
+import { CreateSummaryPageComponent } from './pages/create-summary-page/create-summary-page.component';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     SummaryComponent,
     SummariesPageComponent,
-    SummaryPageComponent
+    SummaryPageComponent,
+    CreateSummaryPageComponent
   ],
   imports: [
     CommonModule,

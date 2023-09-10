@@ -50,13 +50,13 @@
   <div class="mt-10 border-2 border-slate-500 p-10 rounded-xl bg-white dark:bg-slate-700" *ngIf="showingVacancies">
     <ul class="">
       <app-short-vacancy *ngFor="let vacancy of vacancies" [data]="vacancy"></app-short-vacancy>
-      <button class=" button-green flex items-center gap-2">
+      <a [routerLink]="['/vacancies', 'create']" class=" button-green inline-flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
         </svg>
         
         <span>add</span>
-      </button>
+      </a>
     </ul>
   </div>
   
@@ -64,13 +64,13 @@
     <ul >
       <app-short-summary *ngFor="let summary of summaries" [data]="summary"></app-short-summary>
       
-      <button class=" button-green flex items-center gap-2">
+      <a [routerLink]="['/summaries', 'create']" class=" button-green inline-flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
         </svg>
         
         <span>add</span>
-      </button>
+      </a>
     </ul>
   </div>
 </section>

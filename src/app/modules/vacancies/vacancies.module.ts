@@ -5,12 +5,14 @@ import { VacanciesPageComponent } from './pages/vacancies-page/vacancies.compone
 import { VacanciesService } from './services/vacancies.service';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { RouterModule } from '@angular/router';
+import { CreateVacancyPageComponent } from './pages/create-vacancy-page/create-vacancy-page.component';
 
 @NgModule({
   declarations: [
     VacancyComponent,
     VacancyPageComponent,
-    VacanciesPageComponent
+    VacanciesPageComponent,
+    CreateVacancyPageComponent
   ],
   providers: [
     VacanciesService
