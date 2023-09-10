@@ -1,6 +1,6 @@
 <li class="shadow-md pb-5 dark:bg-slate-500 rounded-md m-auto border-b-4 border-b-yellow-500  bg-slate-100 max-w-3xl text-left">
   <!-- short  -->
-  <a class="text-xl dark:hover:bg-blue-600 dark:bg-blue-500 dark:text-white text-blue-500 cursor-pointer shadow-sm hover:bg-green-200 transition bg-green-100 pl-5 rounded-tl-md rounded-tr-md py-5 w-full  flex">
+  <a [routerLink]="['/vacancies', id]" class="text-xl dark:hover:bg-blue-600 dark:bg-blue-500 dark:text-white text-blue-500 cursor-pointer shadow-sm hover:bg-green-200 transition bg-green-100 pl-5 rounded-tl-md rounded-tr-md py-5 w-full  flex">
     {{title | titlecase}}
   </a>
   <div class="px-3 pt-3">

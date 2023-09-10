@@ -57,4 +57,9 @@ export class SummariesService {
   getByKeyWord = () => {
 
   }
+  getOneById = (id: string) => {
+    return this.summaries.find((el) => {
+      return el.id === id
+    })
+  }
 }

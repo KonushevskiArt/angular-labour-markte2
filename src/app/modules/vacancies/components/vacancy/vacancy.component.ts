@@ -18,6 +18,7 @@ export class VacancyComponent implements OnInit {
   contactNumber: string;
   date: string;
   location: Location;
+  id: string;
 
   ngOnInit(): void {
     this.title = this.data.title;
@@ -27,7 +28,7 @@ export class VacancyComponent implements OnInit {
     this.contactNumber = this.data.contactNumber
     this.date = this.data.date   
     this.location = this.data.location
-    console.log(this.data);
+    this.id = this.data.id
     
   }
 

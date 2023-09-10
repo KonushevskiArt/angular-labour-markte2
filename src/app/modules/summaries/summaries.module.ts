@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SummaryComponent } from './components/summary/summary.component';
 import { SummariesPageComponent } from './pages/summaries-page/summaries-page.component';
 import { SummaryPageComponent } from './pages/summary-page/summary-page.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { SummaryPageComponent } from './pages/summary-page/summary-page.componen
     SummaryPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SummariesModule { }

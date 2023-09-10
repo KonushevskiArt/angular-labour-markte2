@@ -4,6 +4,7 @@ import { VacancyPageComponent } from './pages/vacancy-page/vacancy-page.componen
 import { VacanciesPageComponent } from './pages/vacancies-page/vacancies.component';
 import { VacanciesService } from './services/vacancies.service';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { VacancyComponent } from './components/vacancy/vacancy.component';
     VacanciesService
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: []
 })

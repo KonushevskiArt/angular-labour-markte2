@@ -29,9 +29,10 @@ export class SummaryComponent implements OnInit {
     this.targetVacancy = this.data.targetVacancy;
     this.expectedSalary = this.data.expectedSalary;
     this.employment = this.data.employment;
-    this.createdBy = this.data.createdBy
-    this.workExperience = this.data.workExperience
-    this.contactNumber = this.data.contactNumber
+    this.createdBy = this.data.createdBy;
+    this.workExperience = this.data.workExperience;
+    this.contactNumber = this.data.contactNumber;
+    this.id = this.data.id;
  
     console.log(this.data);
     

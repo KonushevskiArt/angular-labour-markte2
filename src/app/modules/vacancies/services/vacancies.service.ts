@@ -10,7 +10,7 @@ export class VacanciesService {
     {
       title: 'Frontend developer',
       date: '06.09.2023',
-      description: 'Our company seeking for experienced fronted developer with experience' ,
+      description: 'Our company seeking for experienced fronted developer with experience Our company seeking for experienced fronted developer with experience Our company seeking for experienced fronted developer with experienceOur company seeking for experienced fronted developer with experience \n Our company seeking for experienced fronted developer with experience \n Our company seeking for experienced fronted developer with experience' ,
       workExperience: '1 year',
       requirements: 
       [
@@ -74,8 +74,14 @@ export class VacanciesService {
     return this.vacancies;
   }
 
-  getByKeyWord = () => {
+  getVacanciesByKeyWord = () => {
 
+  }
+
+  getOneById = (id: string) => {
+    return this.vacancies.find((el) => {
+      return el.id === id
+    })
   }
   
 }
