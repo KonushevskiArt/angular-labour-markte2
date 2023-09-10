@@ -1,13 +1,16 @@
 
-<div (click)="closeModal()" class="overlay flex items-center justify-center top-0 left-0 opacity-70 z-40 absolute h-screen w-screen bg-slate-800 ">
-  <div (click)="handleModalClick($event)" class="window bg-slate-200 py-10 px-10 relative border-2 border-slate-900 rounded-md">
-    <button (click)="closeModal()" class="dark:fill-stroke-900 hover:scale-110 text-lg absolute top-1 right-2">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="transition-150  dark:stroke-slate-900 w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>      
-    </button>
-    <ng-content></ng-content>
-  </div>
+<div #modalRef class="flex items-center justify-center h-screen w-screen absolute top-0 left-0" >
+  <div (click)="handleModalClick($event)" class="overlay  top-0 left-0 opacity-70 z-10 absolute h-screen w-screen bg-slate-800 " > </div>
+  
+    <div class="absolute z-20 bg-slate-200 py-10 px-10 border-2 border-slate-900 rounded-md">
+      <button (click)="closeModal()" class="dark:fill-stroke-900 hover:scale-110 text-lg absolute top-1 right-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="transition-150  dark:stroke-slate-900 w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>      
+      </button>
+      
+      <ng-content></ng-content>
+    </div>
   
 </div>
 

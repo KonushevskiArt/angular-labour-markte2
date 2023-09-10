@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-log-in',
@@ -13,11 +13,9 @@ export class LogInComponent {
 
   openModal = () => {
     this.isOpen = true;
-    console.log('open modal ');
   }
 
   closeModal = () => {
     this.isOpen = false;
-    console.log('close modal');
   }
 }
