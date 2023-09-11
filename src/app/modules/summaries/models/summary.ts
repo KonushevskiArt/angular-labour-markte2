@@ -1,3 +1,4 @@
+import { ISalary, Location } from "../../vacancies/models/vacancy";
 
 
 export interface SummaryModel {
@@ -10,9 +11,8 @@ export interface SummaryModel {
   targetVacancy: string,
   employment: string,
 
-  workExperience : string,
-  // try mackdown 
-  expectedSalary: string,
+  workExperience : string[],
+  expectedSalary: ISalary,
 
   createdBy: string,
   id: string

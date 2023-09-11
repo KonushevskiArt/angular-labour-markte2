@@ -10,6 +10,7 @@ import { SummaryPageComponent } from './modules/summaries/pages/summary-page/sum
 import { CreateVacancyPageComponent } from './modules/vacancies/pages/create-vacancy-page/create-vacancy-page.component';
 import { CreateSummaryPageComponent } from './modules/summaries/pages/create-summary-page/create-summary-page.component';
 import { EditVacancyPageComponent } from './modules/vacancies/pages/edit-vacancy-page/edit-vacancy-page.component';
+import { EditSummaryPageComponent } from './modules/summaries/pages/edit-summary-page/edit-summary-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vacancies', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'vacancies/:id', component: VacancyPageComponent},
   { path: 'summaries', component: SummariesPageComponent},
   { path: 'summaries/create', component: CreateSummaryPageComponent, pathMatch: 'full'},
+  { path: 'summaries/edit/:id', component: EditSummaryPageComponent, pathMatch: 'full'},
   { path: 'summaries/:id', component: SummaryPageComponent},
   { path: 'personal-cabinet', component: PersonalCabinetPageComponent},
   { path: 'about', component: AboutComponent},

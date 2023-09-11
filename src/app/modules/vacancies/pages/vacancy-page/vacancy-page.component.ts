@@ -6,7 +6,7 @@ import { ISalary, Location, VacancyModel } from '../../models/vacancy';
 @Component({
   selector: 'app-vacancy-page',
   templateUrl: './vacancy-page.component.html',
-  styleUrls: ['./vacancy-page.component.css']
+  styleUrls: []
 })
 export class VacancyPageComponent implements OnInit {
   

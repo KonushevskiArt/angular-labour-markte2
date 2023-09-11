@@ -5,7 +5,7 @@ import { VacancyModel } from './../../models/vacancy';
 @Component({
   selector: 'app-vacancies-page',
   templateUrl: './vacancies.component.html',
-  styleUrls: ['./vacancies.component.scss'],
+  styleUrls: [],
 })
 export class  VacanciesPageComponent implements OnInit {
   constructor(private vacanciesService: VacanciesService) {}

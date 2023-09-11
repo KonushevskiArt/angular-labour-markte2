@@ -4,10 +4,17 @@ import { VacancyModel } from "../../vacancies/models/vacancy"
 export const mockSummaries: SummaryModel[] = [
   {
     contactNumber: '+375-29-555-55-33',
-    expectedSalary: '600$',
+    expectedSalary: {
+      value: 1600,
+      currency: '$'
+    },
     createdBy: 'Artem',
     id: '4324asdf2344523asdfasgd2',
-    workExperience: 'one yesr there, one year here and so on...',
+    workExperience: [
+      'first i worked there',
+      'then in another place',
+      'and as result i finished here'
+    ],
     name: 'Artem',
     surname: 'Ivanow',
     birthDate: '02.02.1994',
@@ -17,10 +24,17 @@ export const mockSummaries: SummaryModel[] = [
   },
   {
     contactNumber: '+375-29-555-55-33',
-    expectedSalary: '700$',
+    expectedSalary: {
+      value: 900,
+      currency: '$'
+    },
     createdBy: 'Artem',
     id: '4324asdf2344523asdfasgd2',
-    workExperience: 'one yesr there, one year here and so on...',
+    workExperience: [
+      'first i worked there',
+      'then in another place',
+      'and as result i finished here'
+    ],
     name: 'Gala',
     surname: 'Ivanowa',
     birthDate: '02.02.1994',
@@ -30,10 +44,17 @@ export const mockSummaries: SummaryModel[] = [
   },
   {
     contactNumber: '+375-29-555-55-33',
-    expectedSalary: '200$',
+    expectedSalary: {
+      value: 200,
+      currency: '$'
+    },
     createdBy: 'Dima',
     id: '4324asdf2344523asdfasgd2',
-    workExperience: 'one yesr there, one year here and so on...',
+    workExperience: [
+      'first i worked there',
+      'then in another place',
+      'and as result i finished here'
+    ],
     name: 'Artem',
     surname: 'Ivanow',
     birthDate: '02.02.1994',

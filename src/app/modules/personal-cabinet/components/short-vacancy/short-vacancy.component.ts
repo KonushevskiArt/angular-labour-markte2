@@ -4,7 +4,7 @@ import { ISalary, Location, VacancyModel } from 'src/app/modules/vacancies/model
 @Component({
   selector: 'app-short-vacancy',
   templateUrl: './short-vacancy.component.html',
-  styleUrls: ['./short-vacancy.component.css']
+  styleUrls: []
 })
 export class ShortVacancyComponent implements OnInit {
 

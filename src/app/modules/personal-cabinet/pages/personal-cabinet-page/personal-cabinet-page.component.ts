@@ -7,7 +7,7 @@ import { SummaryModel } from 'src/app/modules/summaries/models/summary';
 @Component({
   selector: 'app-personal-cabinet-page',
   templateUrl: './personal-cabinet-page.component.html',
-  styleUrls: ['./personal-cabinet-page.component.css']
+  styleUrls: []
 })
 export class PersonalCabinetPageComponent implements OnInit {
 

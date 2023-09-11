@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { SummaryModel } from 'src/app/modules/summaries/models/summary';
+import { ISalary, Location } from 'src/app/modules/vacancies/models/vacancy';
 
 @Component({
   selector: 'app-short-summary',
   templateUrl: './short-summary.component.html',
-  styleUrls: ['./short-summary.component.css']
+  styleUrls: []
 })
 export class ShortSummaryComponent {
 
@@ -17,8 +18,8 @@ export class ShortSummaryComponent {
   location: string;
   targetVacancy: string;
   employment: string;
-  workExperience : string;
-  expectedSalary: string;
+  workExperience : string[];
+  expectedSalary: ISalary;
   createdBy: string;
   id: string
 
@@ -29,9 +30,10 @@ export class ShortSummaryComponent {
     this.targetVacancy = this.data.targetVacancy;
     this.expectedSalary = this.data.expectedSalary;
     this.employment = this.data.employment;
-    this.createdBy = this.data.createdBy
-    this.workExperience = this.data.workExperience
-    this.contactNumber = this.data.contactNumber
+    this.createdBy = this.data.createdBy;
+    this.workExperience = this.data.workExperience;
+    this.contactNumber = this.data.contactNumber;
+    this.id = this.data.id;
  
     console.log(this.data);
     

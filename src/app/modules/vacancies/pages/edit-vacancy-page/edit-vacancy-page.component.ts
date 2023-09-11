@@ -6,7 +6,7 @@ import { VacanciesService } from '../../services/vacancies.service';
 @Component({
   selector: 'app-edit-vacancy-page',
   templateUrl: './edit-vacancy-page.component.html',
-  styleUrls: ['./edit-vacancy-page.component.css']
+  styleUrls: []
 })
 export class EditVacancyPageComponent implements OnInit {
   

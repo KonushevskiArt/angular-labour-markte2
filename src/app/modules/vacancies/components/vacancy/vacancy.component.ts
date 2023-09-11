@@ -5,7 +5,7 @@ import { Location } from './../../models/vacancy';
 @Component({
   selector: 'app-vacancy',
   templateUrl: './vacancy.component.html',
-  styleUrls: ['./vacancy.component.css']
+  styleUrls: []
 })
 export class VacancyComponent implements OnInit {
 

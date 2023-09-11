@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SummaryModel } from '../../models/summary';
+import { ISalary, Location } from 'src/app/modules/vacancies/models/vacancy';
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.css']
+  styleUrls: []
 })
 export class SummaryComponent implements OnInit {
 
@@ -17,8 +18,8 @@ export class SummaryComponent implements OnInit {
   location: string;
   targetVacancy: string;
   employment: string;
-  workExperience : string;
-  expectedSalary: string;
+  workExperience : string[];
+  expectedSalary: ISalary;
   createdBy: string;
   id: string
 
