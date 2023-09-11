@@ -5,7 +5,7 @@ import { SummaryModel } from '../../models/summary';
 @Component({
   selector: 'app-summaries-page',
   templateUrl: './summaries-page.component.html',
-  styleUrls: ['./summaries-page.component.css']
+  styleUrls: []
 })
 export class SummariesPageComponent implements OnInit {
   constructor(private summariesService: SummariesService) {}

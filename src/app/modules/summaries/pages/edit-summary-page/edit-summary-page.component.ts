@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { SummariesService } from '../../services/summaries.service';
 import { ActivatedRoute } from '@angular/router';
+import { SummariesService } from '../../services/summaries.service';
 import { SummaryModel } from '../../models/summary';
-import { ISalary, Location } from 'src/app/modules/vacancies/models/vacancy';
+import { ISalary } from 'src/app/modules/vacancies/models/vacancy';
 
 @Component({
-  selector: 'app-summary-page',
-  templateUrl: './summary-page.component.html',
+  selector: 'app-edit-summary-page',
+  templateUrl: './edit-summary-page.component.html',
   styleUrls: []
 })
-export class SummaryPageComponent {
+export class EditSummaryPageComponent {
   constructor(public route: ActivatedRoute, private summariesService: SummariesService) {}
 
   vacancyId: string;
@@ -42,7 +42,6 @@ export class SummaryPageComponent {
         this.createdBy = this.data.createdBy
         this.workExperience = this.data.workExperience
         this.contactNumber = this.data.contactNumber
- 
       }
 
       

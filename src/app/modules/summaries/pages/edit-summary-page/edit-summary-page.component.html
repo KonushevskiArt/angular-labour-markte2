@@ -5,13 +5,13 @@
   <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex gap-8">
     <label >
       <span class="mr-3 font-bold">Target vacancy:</span>
-      <input class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+      <input [value]="targetVacancy" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
       <span class="error"></span>
     </label>
 
     <label class="flex">
       <span class="mr-3 font-bold">City:</span>
-      <input class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+      <input [value]="location" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
       <span class="error"></span>
     </label>
 
@@ -20,13 +20,13 @@
   <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex gap-8">
     <label >
       <span class="mr-3 font-bold">Name:</span>
-      <input class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+      <input [value]="name" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
       <span class="error"></span>
     </label>
 
     <label >
       <span class="mr-3 font-bold">Surname:</span>
-      <input class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+      <input [value]="surname" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
       <span class="error"></span>
     </label>
 
@@ -35,7 +35,7 @@
   <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex gap-8">
     <label >
       <span class="mr-3 font-bold">Date of birth:</span>
-      <input class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="date">
+      <input [value]="birthDate" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="date">
       <span class="error"></span>
     </label>
 
@@ -55,24 +55,24 @@
     <label class="w-full text-left">
       <span class="mr-3 block font-bold">Work experience: (when and what have you being during you life)</span>
       <span class="text-sm block mt-3">use the * symbol in the place where you should end a paragraph and start a new one</span>
-      <textarea class="mt-3 shadow-slate-400 shadow-sm w-full outline-blue-500 px-2 h-40" type="text"></textarea>
+      <textarea [value]="workExperience" class="mt-3 shadow-slate-400 shadow-sm w-full outline-blue-500 px-2 h-40" type="text"></textarea>
       <span class="error"></span>
     </label>
 
   </div>
 
-  <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2  text-left">
-    <h4 class="text-lg font-bold mt-5 border-slate-300 pb-3" >Expected salary:</h4>
+  <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex items-start gap-8">
+    <h4 class="text-lg font-bold mt-5  border-slate-300 pb-3" >Expected salary:</h4>
     <div class="mt-5 flex gap-5">
       <label >
         <span class="mr-3 font-bold">Quantity:</span>
-        <input  class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+        <input [value]="expectedSalary.value" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
         <span class="error"></span>
       </label>
 
       <label >
         <span class="mr-3 font-bold">Currency:</span>
-        <input  class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+        <input [value]="expectedSalary.currency" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
         <span class="error"></span>
       </label>
     </div>
@@ -81,11 +81,10 @@
   <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex items-start gap-8">
     <label>
       <span class="mr-3 font-bold">Contact number:</span>
-      <input class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
+      <input [value]="contactNumber" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
       <span class="error"></span>
     </label>
   </div>
-
 
   <div class="text-left">
     <button class=" button-green-filled px-20 my-10">add summary</button>
