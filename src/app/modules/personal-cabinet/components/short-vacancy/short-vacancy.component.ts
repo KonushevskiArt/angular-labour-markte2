@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Location, VacancyModel } from 'src/app/modules/vacancies/models/vacancy';
+import { ISalary, Location, VacancyModel } from 'src/app/modules/vacancies/models/vacancy';
 
 @Component({
   selector: 'app-short-vacancy',
@@ -11,8 +11,8 @@ export class ShortVacancyComponent implements OnInit {
   @Input() data: VacancyModel
 
   title: string;
-  salary: string;
-  workExperience: string;
+  salary: ISalary;
+  workExperience: number;
   date: string;
   location: Location;
   id: string;

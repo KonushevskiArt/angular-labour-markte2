@@ -47,8 +47,13 @@ export const mockVacancies: VacancyModel[] = [
   {
     title: 'Frontend developer',
     date: '06.09.2023',
-    description: 'Our company seeking for experienced fronted developer with experience' ,
-    workExperience: '1 year',
+    description: [
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience'
+    ],
+    workExperience: 1,
     requirements: 
     [
       'html',
@@ -62,15 +67,23 @@ export const mockVacancies: VacancyModel[] = [
       street: 'Nemiga',
       house: '10'
     },
-    salary: '600$',
+    salary: {
+      value: 600,
+      currency: '$'
+    },
     createdBy: 'Artem',
     id: '4324asdf234gd2'
   },
   {
     title: 'driver',
     date: '04.09.2023',
-    description: 'Taxi service seeking for driver who wanna earn big money' ,
-    workExperience: '1 year',
+    description: [
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience'
+    ],
+    workExperience: 2,
     requirements: 
     [
       'driver license',
@@ -81,19 +94,28 @@ export const mockVacancies: VacancyModel[] = [
       street: 'Voloha',
       house: '10'
     },
-    salary: '500$',
+    salary: {
+      value: 500,
+      currency: '$'
+    },
     createdBy: 'Artem',
     id: '4324fghf234fdsd2'
   },
   {
     title: 'строитель',
-    workExperience: 'без опыта работы',
+    workExperience: 0,
     date: '05.09.2023',
-    description: 'Нужен строитель на стройку',
+    description: [
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience',
+      'Our company seeking for experienced fronted developer with experience'
+    ],
     
     requirements: 
     [
       'хорошая физическая подготовка',
+      'без вредных привычек'
     ],
     contactNumber: '+375-29-222-22-02',
     location: {
@@ -101,7 +123,10 @@ export const mockVacancies: VacancyModel[] = [
       street: 'Ванеева',
       house: '24'
     },
-    salary: '1500br',
+    salary: {
+      value: 1600,
+      currency: 'BR'
+    },
     createdBy: 'Artem',
     id: '43234gfdf2dfg4gddfg232'
   }

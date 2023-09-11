@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { VacancyModel } from '../../models/vacancy';
+import { ISalary, VacancyModel } from '../../models/vacancy';
 import { Location } from './../../models/vacancy';
 
 @Component({
@@ -12,9 +12,9 @@ export class VacancyComponent implements OnInit {
   @Input() data: VacancyModel;
 
   title: string;
-  salary: string;
+  salary: ISalary;
   createdBy: string;
-  workExperience: string;
+  workExperience: number;
   contactNumber: string;
   date: string;
   location: Location;

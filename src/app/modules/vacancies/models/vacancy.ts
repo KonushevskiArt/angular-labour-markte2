@@ -3,15 +3,21 @@ export interface Location {
   street: string,
   house: string
 }
+
+export interface ISalary {
+  value: number,
+  currency: string
+}
+
 export interface VacancyModel {
   title: string,
   date: string,
-  description: string,
-  workExperience : string,
+  description: string[],
+  workExperience : number,
   requirements: string[],
   contactNumber: string,
   location: Location,
-  salary: string,
+  salary: ISalary,
   createdBy: string,
   id: string
 }

@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VacanciesService } from '../../services/vacancies.service';
 import { ISalary, Location, VacancyModel } from '../../models/vacancy';
+import { VacanciesService } from '../../services/vacancies.service';
 
 @Component({
-  selector: 'app-vacancy-page',
-  templateUrl: './vacancy-page.component.html',
-  styleUrls: ['./vacancy-page.component.css']
+  selector: 'app-edit-vacancy-page',
+  templateUrl: './edit-vacancy-page.component.html',
+  styleUrls: ['./edit-vacancy-page.component.css']
 })
-export class VacancyPageComponent implements OnInit {
+export class EditVacancyPageComponent implements OnInit {
   
   constructor(public route: ActivatedRoute, private vacanciesService: VacanciesService) {}
-  
+
+
   vacancyId: string;
   data: VacancyModel | undefined;
 
@@ -48,6 +49,5 @@ export class VacancyPageComponent implements OnInit {
       
     })
   }
-
 
 }

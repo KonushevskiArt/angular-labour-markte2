@@ -10,8 +10,13 @@ export class VacanciesService {
     {
       title: 'Frontend developer',
       date: '06.09.2023',
-      description: 'Our company seeking for experienced fronted developer with experience Our company seeking for experienced fronted developer with experience Our company seeking for experienced fronted developer with experienceOur company seeking for experienced fronted developer with experience \n Our company seeking for experienced fronted developer with experience \n Our company seeking for experienced fronted developer with experience' ,
-      workExperience: '1 year',
+      description: [
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience'
+      ],
+      workExperience: 1,
       requirements: 
       [
         'html',
@@ -25,15 +30,23 @@ export class VacanciesService {
         street: 'Nemiga',
         house: '10'
       },
-      salary: '600$',
+      salary: {
+        value: 600,
+        currency: '$'
+      },
       createdBy: 'Artem',
       id: '4324asdf234gd2'
     },
     {
       title: 'driver',
       date: '04.09.2023',
-      description: 'Taxi service seeking for driver who wanna earn big money' ,
-      workExperience: '1 year',
+      description: [
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience'
+      ] ,
+      workExperience: 2,
       requirements: 
       [
         'driver license',
@@ -44,15 +57,23 @@ export class VacanciesService {
         street: 'Voloha',
         house: '10'
       },
-      salary: '500$',
+      salary: {
+        value: 600,
+        currency: '$'
+      },
       createdBy: 'Artem',
       id: '4324fghf234fdsd2'
     },
     {
       title: 'строитель',
-      workExperience: 'без опыта работы',
+      workExperience: 0,
       date: '05.09.2023',
-      description: 'Нужен строитель на стройку',
+      description: [
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience',
+        'Our company seeking for experienced fronted developer with experience'
+      ],
       
       requirements: 
       [
@@ -64,7 +85,10 @@ export class VacanciesService {
         street: 'Ванеева',
         house: '24'
       },
-      salary: '1500br',
+      salary: {
+        value: 600,
+        currency: 'BR'
+      },
       createdBy: 'Artem',
       id: '43234gfdf2dfg4gddfg232'
     }

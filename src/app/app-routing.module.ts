@@ -9,11 +9,13 @@ import { PersonalCabinetPageComponent } from './modules/personal-cabinet/pages/p
 import { SummaryPageComponent } from './modules/summaries/pages/summary-page/summary-page.component';
 import { CreateVacancyPageComponent } from './modules/vacancies/pages/create-vacancy-page/create-vacancy-page.component';
 import { CreateSummaryPageComponent } from './modules/summaries/pages/create-summary-page/create-summary-page.component';
+import { EditVacancyPageComponent } from './modules/vacancies/pages/edit-vacancy-page/edit-vacancy-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vacancies', pathMatch: 'full'},
   { path: 'vacancies', component: VacanciesPageComponent},
   { path: 'vacancies/create', component: CreateVacancyPageComponent, pathMatch: 'full'},
+  { path: 'vacancies/edit/:id', component: EditVacancyPageComponent, pathMatch: 'full'},
   { path: 'vacancies/:id', component: VacancyPageComponent},
   { path: 'summaries', component: SummariesPageComponent},
   { path: 'summaries/create', component: CreateSummaryPageComponent, pathMatch: 'full'},
