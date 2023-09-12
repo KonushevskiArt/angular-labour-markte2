@@ -3,7 +3,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule
   ],
   exports: [

@@ -2,27 +2,62 @@
   (click)="openModal()"
   i18n-title="@@register-button-title"
   title="Registration"
-  class="button" 
+  class="button rounded-lg" 
 >
   <span class="material-icons">person_add</span>
 </button>
 
 <div *ngIf="isOpen">
   <app-modal [closeModal]="closeModal">
-    <div class="flex flex-col">
+    <form class="flex flex-col bg-slate-200  border-slate-400 py-10 px-10 rounded-md" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <h4 class="text-center mb-3 text-lg font-bold text-black">Sign up</h4>
 
       <label class="flex flex-col">
-        <span class="ml-1 dark:text-slate-900">email</span>
-        <input [(ngModel)]="email" class=" drop-shadow-sm mb-4" type="text">
+        <span class="ml-1 dark:text-slate-900">username</span>
+        <div class="flex items-center gap-2">
+          <input  
+            class=" drop-shadow-sm px-2" 
+            type="text"
+            formControlName="username" 
+            [ngClass]="{'border-2 border-red-500' : isValid('username')}"
+          >
+          <span class="material-icons  text-slate-600">person</span>
+        </div>
+
+        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('username', 'required')">This field is required</span>
       </label>
 
-      <label class="flex flex-col">
+      <label class="flex flex-col mt-4">
+        <span class="ml-1  dark:text-slate-900">email</span>
+        <div class="flex items-center gap-2">
+          <input 
+          class=" drop-shadow-sm mt-1 px-2" 
+          formControlName="email" 
+          type="text"
+          [ngClass]="{'border-2 border-red-500' : isValid('email')}"
+          >
+          <span class="material-icons  text-slate-600">email</span>
+        </div>
+        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('email', 'required')">This field is required</span>
+        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('email', 'email')">This field must be email type </span>
+      </label>
+
+      <label class="flex flex-col mt-3">
         <span class="ml-1 dark:text-slate-900">password</span>
-        <input [(ngModel)]="password" class=" drop-shadow-sm mb-4" type="text">
+        <div class="flex items-center gap-2">
+          <input 
+            class=" drop-shadow-sm mt-1 px-2"
+            formControlName="password" 
+            type="text"
+            [ngClass]="{'border-2 border-red-500' : isValid('password')}"
+          >
+          <span class="material-icons text-slate-600">password</span>
+        </div>
+        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('password', 'required')">This field is required</span>
+        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('password', 'minlength')">Min length 5 characters </span>
       </label>
 
-      <button class="button dark:hover:border-slate-900 dark:hover:border">submit</button>
-    </div>
+      <button class="button mt-8 dark:hover:border-slate-900 dark:hover:border">submit</button>
+    </form>
   </app-modal>
 </div>

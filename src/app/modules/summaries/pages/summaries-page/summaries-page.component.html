@@ -1,0 +1,6 @@
+<div>
+  <p *ngIf="loading">Loading...</p>
+  <ul *ngIf="!loading" class="flex flex-col gap-4 px-3">
+    <app-summary *ngFor="let summary of summaries | async" [data]="summary"></app-summary>
+  </ul>
+</div>
