@@ -6,6 +6,7 @@ import { SummaryPageComponent } from './pages/summary-page/summary-page.componen
 import { RouterModule } from '@angular/router';
 import { CreateSummaryPageComponent } from './pages/create-summary-page/create-summary-page.component';
 import { EditSummaryPageComponent } from './pages/edit-summary-page/edit-summary-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { EditSummaryPageComponent } from './pages/edit-summary-page/edit-summary
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class SummariesModule { }

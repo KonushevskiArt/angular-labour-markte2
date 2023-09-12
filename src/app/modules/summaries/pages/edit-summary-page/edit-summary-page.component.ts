@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SummariesService } from '../../services/summaries.service';
 import { SummaryModel } from '../../models/summary';
-import { ISalary } from 'src/app/modules/vacancies/models/vacancy';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-summary-page',
@@ -10,22 +10,23 @@ import { ISalary } from 'src/app/modules/vacancies/models/vacancy';
   styleUrls: []
 })
 export class EditSummaryPageComponent {
-  constructor(public route: ActivatedRoute, private summariesService: SummariesService) {}
-
+  constructor(public route: ActivatedRoute, private summariesService: SummariesService, private fb: FormBuilder) {}
+  
   vacancyId: string;
   data: SummaryModel | undefined;
 
-  name: string;
-  surname: string;
-  contactNumber: string;
-  birthDate: string;
-  location: string;
-  targetVacancy: string;
-  employment: string;
-  workExperience : string[];
-  expectedSalary: ISalary;
-  createdBy: string;
-  id: string
+  registerForm = this.fb.group({
+    targetVacancy: ['', [Validators.required]],
+    city: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    surname: ['', [Validators.required]],
+    birthDate: ['', [Validators.required]],
+    employment: ['', [Validators.required]],
+    workExperience: '',
+    quantity: 0,
+    currency: '',
+    contactNumber: ['', [Validators.required]],
+  })
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -33,21 +34,54 @@ export class EditSummaryPageComponent {
       this.data = this.summariesService.getOneById(this.vacancyId)
 
       if (this.data) {
-        this.name = this.data.name;
-        this.surname = this.data.surname;
-        this.location = this.data.location;
-        this.targetVacancy = this.data.targetVacancy;
-        this.expectedSalary = this.data.expectedSalary;
-        this.employment = this.data.employment;
-        this.createdBy = this.data.createdBy
-        this.workExperience = this.data.workExperience
-        this.contactNumber = this.data.contactNumber
-      }
+        const {
+          name,
+          surname,
+          location,
+          targetVacancy,
+          expectedSalary, 
+          employment,
+          createdBy,
+          workExperience,
+          contactNumber,
+          birthDate,
+        } = this.data;
 
-      
+        this.registerForm.patchValue({
+          targetVacancy,
+          city: location,
+          name,
+          surname,
+          birthDate,
+          employment,
+          workExperience: workExperience.join(),
+          quantity: expectedSalary.value,
+          currency: expectedSalary.currency,
+          contactNumber,
+        })
+      }
     })
-    
-    
   }
+  
+
+  isSubmitted = false;
+
+  hasError = (fieldName: string, validationType: string) => {
+    return this.registerForm.get(fieldName)?.hasError(validationType) &&
+    this.isSubmitted;
+  }
+
+  onSubmit = () => {
+    console.log(this.registerForm.value);
+    this.isSubmitted = true;
+    // this.registerForm.reset()
+
+    // service + redirect
+  }
+
+  isValid = (fieldName: string) => {
+    return this.registerForm.get(fieldName)?.invalid && this.isSubmitted;
+  }
+
 
 }

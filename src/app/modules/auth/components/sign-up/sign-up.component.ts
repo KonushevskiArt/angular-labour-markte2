@@ -16,7 +16,7 @@ export class SignUpComponent {
   })
 
   isSubmitted = false;
-  isOpen = true;
+  isOpen = false;
 
   openModal = () => {
     this.isOpen = true;

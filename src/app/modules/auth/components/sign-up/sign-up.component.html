@@ -16,9 +16,9 @@
         <span class="ml-1 dark:text-slate-900">username</span>
         <div class="flex items-center gap-2">
           <input  
-            formControlName="username" 
             class=" drop-shadow-sm px-2" 
             type="text"
+            formControlName="username" 
             [ngClass]="{'border-2 border-red-500' : isValid('username')}"
           >
           <span class="material-icons  text-slate-600">person</span>
