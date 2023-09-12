@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ISalary, Location, VacancyModel } from '../../models/vacancy';
 import { VacanciesService } from '../../services/vacancies.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-vacancy-page',
@@ -10,22 +11,26 @@ import { VacanciesService } from '../../services/vacancies.service';
 })
 export class EditVacancyPageComponent implements OnInit {
   
-  constructor(public route: ActivatedRoute, private vacanciesService: VacanciesService) {}
+  constructor(public route: ActivatedRoute, private vacanciesService: VacanciesService, private fb: FormBuilder) {}
 
 
   vacancyId: string;
   data: VacancyModel | undefined;
 
-  title: string;
-  salary: ISalary;
-  createdBy: string;
-  workExperience: number;
-  contactNumber: string;
-  date: string;
-  location: Location;
-  id: string;
-  description: string[];
-  requirements: string[];
+  registerForm = this.fb.group({
+    title: ['', [Validators.required]],
+    date: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    workExperience: [0, [Validators.required]],
+    requirements: ['', [Validators.required]],
+    employment: ['', [Validators.required]],
+    quantity: 0,
+    currency: '',
+    city: ['', [Validators.required]],
+    street: ['', [Validators.required]],
+    house: ['', [Validators.required]],
+    contactNumber: ['', [Validators.required]],
+  })
 
 
   ngOnInit(): void {
@@ -34,20 +39,55 @@ export class EditVacancyPageComponent implements OnInit {
       this.data = this.vacanciesService.getOneById(this.vacancyId)
 
       if (this.data) {
-        this.title = this.data.title;
-        this.salary = this.data.salary;
-        this.createdBy = this.data.createdBy
-        this.workExperience = this.data.workExperience
-        this.contactNumber = this.data.contactNumber
-        this.date = this.data.date   
-        this.location = this.data.location
-        this.id = this.data.id
-        this.description = this.data.description
-        this.requirements = this.data.requirements
-      }
+        const {
+          title,
+          date,
+          description,
+          workExperience,
+          requirements,
+          employment,
+          salary,
+          location,
+          contactNumber,
+          createdBy,
+          id
+        } = this.data;
 
-      
+        this.registerForm.patchValue({
+          title,
+          date,
+          description: description.join('\n'),
+          workExperience,
+          requirements: requirements.join('\n'),
+          employment,
+          quantity: salary.value,
+          currency: salary.currency,
+          city: location.city,
+          street: location.street,
+          house: location.house,
+          contactNumber,
+        })
+      }
     })
+  }
+
+  isSubmitted = false;
+
+  hasError = (fieldName: string, validationType: string) => {
+    return this.registerForm.get(fieldName)?.hasError(validationType) &&
+    this.isSubmitted;
+  }
+
+  onSubmit = () => {
+    console.log(this.registerForm.value);
+    this.isSubmitted = true;
+    // this.registerForm.reset()
+
+    // service + redirect
+  }
+
+  isValid = (fieldName: string) => {
+    return this.registerForm.get(fieldName)?.invalid && this.isSubmitted;
   }
 
 }

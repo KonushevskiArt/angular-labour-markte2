@@ -1,89 +1,174 @@
-<section class="px-10 max-w-4xl m-auto  dark:text-slate-900">
-  <h3 class="text-center dark:text-white text-2xl">Editing a vacancy, id: {{id}}</h3>
-  <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 shadow-md flex gap-8">
-    <label >
-      <span class="mr-3 font-bold">Title:</span>
-      <input [value]="title" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-      <span class="error"></span>
-    </label>
+<section>
+  <form class="px-10 max-w-4xl m-auto  dark:text-slate-900" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h3 class="text-center dark:text-white text-2xl">Editing the vacancy id: {{vacancyId}}</h3>
 
-    <label >
-      <span class="mr-3 font-bold">Work experience:</span>
-      <input [value]="workExperience" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" min="0" max="50" type="number">
-      years
-    </label>
-  </div>
+    
+    <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex gap-8">
+      <label class="flex">
+        <span class="mr-3 font-bold">Title:</span>
+        <div class="flex flex-col text-left">
+          <input 
+            class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+            type="text"
+            formControlName="title" 
+            [ngClass]="{'border-2 border-red-500' : isValid('title')}"
+          >
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('title', 'required')">This field is required</span>
+        </div>
+      </label>
 
-  <div class="mt-5 p-10 bg-slate-200 shadow-md rounded-lg border-2 flex flex-col items-start gap-8">
-    <label class="w-full text-left">
-      <span class="mb-3 block font-bold">Requirements:</span>
-      <span class="text-sm">use the * symbol in the place where you should end a paragraph and start a new one</span>
-      <textarea [value]="requirements.join('*\n')" class=" shadow-slate-400 shadow-sm w-full outline-blue-500 px-2 h-40" type="text"></textarea>
-      <span class="error"></span>
-    </label>
-
-  </div>
-
-  <div class="mt-5 p-10 shadow-md bg-slate-200 rounded-lg border-2 flex flex-col items-start gap-8">
-    <label class="w-full text-left">
-      <span class="mb-3 block font-bold">Description:</span>
-      <span class="text-sm">use the * symbol in the place where you should end a paragraph and start a new one</span>
-      <textarea [value]="description.join('*\n')" class="w-full shadow-slate-400 shadow-sm outline-blue-500 px-2 h-40" type="text"></textarea>
-      <span class="error"></span>
-    </label>
-  </div>
-
-  <div class="mt-5 p-10 shadow-md bg-slate-200 rounded-lg border-2  text-left gap-8">
-    <label>
-      <span class="mr-3 font-bold">Contact number:</span>
-      <input [value]="contactNumber" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-      <span class="error"></span>
-    </label>
-
-
-      <h4 class="text-lg font-bold mt-5  border-slate-300 pb-3" >Salary:</h4>
+      <label class="flex">
+        <span class="mr-3 font-bold">Work experience:</span>
+        <div class="flex flex-col text-left">
+          <input 
+            class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+            min="0" max="50" type="number"
+            formControlName="workExperience" 
+            [ngClass]="{'border-2 border-red-500' : isValid('workExperience')}"
+          >
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('workExperience', 'required')">This field is required</span>
+        </div>
+      </label>
+    </div>
+  
+    <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex flex-col items-start gap-8">
+      <label class="w-full text-left">
+        <span class="mb-3 block font-bold">Requirements:</span>
+        <span class="text-sm">use the * symbol in the place where you should end a paragraph and start a new one</span>
+        <div class="flex flex-col text-left">
+          <textarea
+            class=" shadow-slate-400 shadow-sm w-full outline-blue-500 px-2 h-40" 
+            formControlName="requirements" 
+            [ngClass]="{'border-2 border-red-500' : isValid('requirements')}"
+            type="text">
+          </textarea>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('requirements', 'required')">This field is required</span>
+        </div>
+      </label>
+  
+    </div>
+  
+    <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex flex-col items-start gap-8">
+      <label class="w-full text-left">
+        <span class="mb-3 block font-bold">Description:</span>
+        <span class="text-sm">use the * symbol in the place where you should end a paragraph and start a new one</span>
+        <div class="flex flex-col text-left">
+          <textarea 
+            class="w-full shadow-slate-400 shadow-sm outline-blue-500 px-2 h-40" 
+            type="text"
+            formControlName="description" 
+            [ngClass]="{'border-2 border-red-500' : isValid('description')}"
+          >
+          </textarea>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('description', 'required')">This field is required</span>
+        </div>
+      </label>
+    </div>
+  
+    <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex items-start gap-8">
+      <label class="flex">
+        <span class="mr-3 font-bold">Contact number:</span>
+        <div class="flex flex-col text-left">
+          <input 
+            class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+            type="text"
+            formControlName="contactNumber" 
+            [ngClass]="{'border-2 border-red-500' : isValid('contactNumber')}"
+          >
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('contactNumber', 'required')">This field is required</span>
+        </div>
+      </label>
+  
+      <label class="flex">
+        <span class="mr-3 font-bold">Employment:</span>
+        <div class="flex flex-col text-left">
+          <select 
+            class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+            formControlName="employment" 
+            [ngClass]="{'border-2 border-red-500' : isValid('employment')}"
+          >
+          <option disabled value="">Chose the employment</option>
+            <option value="full-time">Full-time</option>
+            <option value="part-time">Part-time</option>
+            <option value="project-work">Project work</option>
+          </select>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('employment', 'required')">This field is required</span>
+        </div>
+      </label>
+  
+    </div>
+  
+    <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2  text-left">
+      <h4 class="text-lg font-bold mt-5 border-slate-300 pb-3" >Salary:</h4>
       <div class="mt-5 flex gap-5">
         <label >
           <span class="mr-3 font-bold">Quantity:</span>
-          <input [value]="salary.value" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-          <span class="error"></span>
+          <input  
+            class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+            type="number"
+            formControlName="quantity"
+          >
         </label>
   
         <label >
           <span class="mr-3 font-bold">Currency:</span>
-          <input [value]="salary.currency" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-          <span class="error"></span>
+          <input  
+            class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+            type="text"
+            formControlName="currency"
+          >
         </label>
       </div>
-
-
-
-
-  </div>
-
-  <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex flex-col items-start gap-8">
-    <h4 class="font-bold">Address:</h4>
-    <div class="ml-5 flex flex-col gap-5 items-start">
-      <label class="flex w-full">
-        <span class="mr-3 text-left grow">City:</span>
-        <input [value]="location.city" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-        <span class="error"></span>
-      </label>
-  
-      <label class="flex w-full">
-        <span class="mr-3 text-left grow">Street:</span>
-        <input [value]="location.street" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-        <span class="error"></span>
-      </label>
-  
-      <label class="flex w-full">
-        <span class="mr-3 text-left grow">House:</span>
-        <input [value]="location.house" class="px-2 shadow-slate-400 shadow-sm outline-blue-500" type="text">
-        <span class="error"></span>
-      </label>
     </div>
-  </div>
-  <div class="text-left">
-    <button class=" button-green-filled px-20 my-10">save changes</button>
-  </div>
+  
+    <div class="mt-5 p-10 bg-slate-200 rounded-lg border-2 flex flex-col items-start gap-8">
+      <h4 class="font-bold">Address:</h4>
+      <div class="ml-5 flex flex-col gap-5 items-start">
+        <label class="flex w-full">
+          <span class="mr-3 text-left grow">City:</span>
+          <div class="flex flex-col text-left">
+            <input 
+              class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+              type="text"
+              formControlName="city" 
+              [ngClass]="{'border-2 border-red-500' : isValid('city')}"
+            >
+            <span class="text-red-500 text-sm mt-1" *ngIf="hasError('city', 'required')">This field is required</span>
+
+          </div>
+        </label>
+    
+        <label class="flex w-full">
+          <span class="mr-3 text-left grow">Street:</span>
+          <div class="flex flex-col text-left">
+            <input 
+              class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+              type="text"
+              formControlName="street" 
+              [ngClass]="{'border-2 border-red-500' : isValid('street')}"
+            >
+            <span class="text-red-500 text-sm mt-1" *ngIf="hasError('street', 'required')">This field is required</span>
+
+          </div>
+        </label>
+    
+        <label class="flex w-full">
+          <span class="mr-3 text-left grow">House:</span>
+          <div class="flex flex-col text-left">
+            <input 
+              class="px-2 shadow-slate-400 shadow-sm outline-blue-500" 
+              type="text"
+              formControlName="house" 
+              [ngClass]="{'border-2 border-red-500' : isValid('house')}"
+            >
+            <span class="text-red-500 text-sm mt-1" *ngIf="hasError('house', 'required')">This field is required</span>
+
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="text-left">
+      <button class=" button-green-filled px-20 my-10">save changes</button>
+    </div>
+  </form>
 </section>

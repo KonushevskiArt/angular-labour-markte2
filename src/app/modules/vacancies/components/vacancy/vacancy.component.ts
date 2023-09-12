@@ -19,17 +19,18 @@ export class VacancyComponent implements OnInit {
   date: string;
   location: Location;
   id: string;
+  employment: string;
 
   ngOnInit(): void {
     this.title = this.data.title;
     this.salary = this.data.salary;
-    this.createdBy = this.data.createdBy
-    this.workExperience = this.data.workExperience
-    this.contactNumber = this.data.contactNumber
-    this.date = this.data.date   
-    this.location = this.data.location
-    this.id = this.data.id
-    
+    this.createdBy = this.data.createdBy;
+    this.workExperience = this.data.workExperience;
+    this.contactNumber = this.data.contactNumber;
+    this.date = this.data.date;  
+    this.location = this.data.location;
+    this.id = this.data.id;
+    this.employment = this.data.employment;
   }
 
 }

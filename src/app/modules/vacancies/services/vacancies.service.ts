@@ -10,6 +10,7 @@ export class VacanciesService {
     {
       title: 'Frontend developer',
       date: '06.09.2023',
+      employment: 'part-time',
       description: [
         'Our company seeking for experienced fronted developer with experience',
         'Our company seeking for experienced fronted developer with experience',
@@ -40,6 +41,7 @@ export class VacanciesService {
     {
       title: 'driver',
       date: '04.09.2023',
+      employment: 'project-work',
       description: [
         'Our company seeking for experienced fronted developer with experience',
         'Our company seeking for experienced fronted developer with experience',
@@ -67,6 +69,7 @@ export class VacanciesService {
     {
       title: 'строитель',
       workExperience: 0,
+      employment: 'full-time',
       date: '05.09.2023',
       description: [
         'Our company seeking for experienced fronted developer with experience',

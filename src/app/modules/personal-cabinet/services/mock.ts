@@ -68,6 +68,7 @@ export const mockVacancies: VacancyModel[] = [
   {
     title: 'Frontend developer',
     date: '06.09.2023',
+    employment: 'part-time',
     description: [
       'Our company seeking for experienced fronted developer with experience',
       'Our company seeking for experienced fronted developer with experience',
@@ -98,6 +99,7 @@ export const mockVacancies: VacancyModel[] = [
   {
     title: 'driver',
     date: '04.09.2023',
+    employment: 'part-time',
     description: [
       'Our company seeking for experienced fronted developer with experience',
       'Our company seeking for experienced fronted developer with experience',
@@ -126,6 +128,7 @@ export const mockVacancies: VacancyModel[] = [
     title: 'строитель',
     workExperience: 0,
     date: '05.09.2023',
+    employment: 'full-time',
     description: [
       'Our company seeking for experienced fronted developer with experience',
       'Our company seeking for experienced fronted developer with experience',

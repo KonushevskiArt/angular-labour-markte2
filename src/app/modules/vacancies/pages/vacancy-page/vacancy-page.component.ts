@@ -25,6 +25,7 @@ export class VacancyPageComponent implements OnInit {
   id: string;
   description: string[];
   requirements: string[];
+  employment: string;
 
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class VacancyPageComponent implements OnInit {
         this.id = this.data.id
         this.description = this.data.description
         this.requirements = this.data.requirements
+        this.employment = this.data.employment
       }
 
       

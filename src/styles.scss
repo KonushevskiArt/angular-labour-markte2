@@ -17,11 +17,11 @@
   }
 
   .button-green {
-    @apply dark:bg-transparent dark:border-green-300 dark:text-green-300 dark:hover:bg-green-600 shadow-md dark:hover:border-white dark:hover:text-white px-10 transition hover:bg-green-500 hover:text-white hover:border-2 border-2 border-green-500 bg-white text-green-500
+    @apply  dark:bg-transparent dark:border-green-300 dark:text-green-300 dark:hover:bg-green-600 shadow-md dark:hover:border-white dark:hover:text-white px-10 transition hover:bg-green-500 hover:text-white hover:border-2 border-2 border-green-500 bg-white text-green-500
   }
 
   .button-green-filled {
-    @apply dark:hover:bg-green-600 shadow-md dark:hover:border-white dark:hover:text-white px-10 transition hover:bg-white hover:text-green-500 hover:border-2 border-2 border-green-500 bg-green-500 text-white
+    @apply  dark:hover:bg-green-600 shadow-md dark:hover:border-white dark:hover:text-white px-10 transition hover:bg-white hover:text-green-500 hover:border-2 border-2 border-green-500 bg-green-500 text-white
   }
 
   .button-blue-filled {

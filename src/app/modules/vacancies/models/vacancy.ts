@@ -12,6 +12,7 @@ export interface ISalary {
 export interface VacancyModel {
   title: string,
   date: string,
+  employment: string,
   description: string[],
   workExperience : number,
   requirements: string[],
