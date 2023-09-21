@@ -1,18 +1,26 @@
-import { ComponentFactoryResolver, Inject, Injectable, Injector, TemplateRef } from '@angular/core';
-import { ModalComponent } from './../../../../../../../../firstApp/src/app/shared/modal/modal.component';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BASE_API_URL } from 'src/app/constants';
+import { LoginData, LoginResponse } from '../types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(
-    private resolver: ComponentFactoryResolver,
-    private injector: Injector,
-    @Inject(Document) private document: Document
-  ) { }
+  constructor(private http: HttpClient) { }
 
-  open(content: TemplateRef<any>, options?: { size?: string; title?: string}) {
-    const ModalComponentFactory = this.resolver.resolveComponentFactory(ModalComponent);
+  token: string | null = null;
+  isAuthorized = false;
+
+  signup = () => {
+    console.log('service sign up');
+    
+  }
+
+  login = (body: LoginData) => {
+    console.log('service log in');
+    return this.http.post<LoginResponse>(`${BASE_API_URL}/auth/login`, body);
+    
   }
 }
