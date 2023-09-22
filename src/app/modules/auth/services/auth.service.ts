@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  token: string | null = null;
+  token: LoginResponse | null = null;
   isAuthorized = false;
 
   signup = () => {
