@@ -1,5 +1,6 @@
 <button
   (click)="openModal()"
+  *ngIf="!isLoggedIn"
   i18n-title="@@register-button-title"
   title="Registration"
   class="button rounded-lg" 

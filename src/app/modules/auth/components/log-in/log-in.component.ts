@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { LoginData, LoginResponse } from '../../types';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -10,18 +9,24 @@ import { Router } from '@angular/router';
   styleUrls: []
 })
 export class LogInComponent {
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.authService.loginObserve$.subscribe((value: boolean) => {
+      this.isLoggedIn = value;
+    })
+  }
 
   registerForm = this.fb.group({
     username: ['Fima', [Validators.required, Validators.minLength(3)]],
     password: ['123456', [Validators.required, Validators.minLength(5)]]
   })
-
+  
+  isLoggedIn = false;
   isSubmitted = false;
   isFetchedError = false;
   isLoading = false;
-  isOpen = true;
-  fetchedErrorMessage = 'Invalid password or username'
+  isOpen = false;
+  fetchedErrorMessage = ''
+
 
   openModal = () => {
     this.isOpen = true;
@@ -29,7 +34,7 @@ export class LogInComponent {
 
   hasError = (fieldName: string, validationType: string) => {
     return this.registerForm.get(fieldName)?.hasError(validationType) &&
-    this.isSubmitted;
+    this.isSubmitted && this.registerForm.touched;
   }
 
   closeModal = () => {
@@ -41,23 +46,30 @@ export class LogInComponent {
   }
   
   onSubmit = () => {
-    console.log(this.registerForm.value);
     this.isSubmitted = true;
     const {username, password} = this.registerForm.value
     if (username && password) {
       this.isLoading = true;
-      this.authService.login(this.registerForm.value as LoginData).subscribe({
+      this.authService.loginHTTP(this.registerForm.value as LoginData).subscribe({
         next:(data: LoginResponse) => {
           console.log(data)
-          this.authService.token = data;
-          this.authService.isAuthorized = true;
+          this.authService.login(data, username)
           this.isLoading = false;
-          this.registerForm.reset()
+
+          this.registerForm.reset();
+          this.registerForm.markAsPristine();
+          this.registerForm.markAsUntouched();
+
           this.isOpen = false;
-          this.router.navigate(['/']);
         },
         error: error => {
-          console.log(error)
+          console.dir(error)
+          if (error.status === 0) {
+            this.fetchedErrorMessage = 'Server error, try again later...'
+          }
+          if (error.status === 400) {
+            this.fetchedErrorMessage = 'Invalid password or username'
+          }
           this.isLoading = false; 
           this.isFetchedError = true;
         }
@@ -67,6 +79,6 @@ export class LogInComponent {
   }
 
   isValid = (fieldName: string) => {
-    return this.registerForm.get(fieldName)?.invalid && this.isSubmitted;
+    return this.registerForm.get(fieldName)?.invalid && this.isSubmitted && this.registerForm.touched;
   }
 }
