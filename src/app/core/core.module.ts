@@ -28,7 +28,7 @@ import { AuthModule } from '../modules/auth/auth.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule,
+    // CommonModule,
     AuthModule,
   ],
   exports: [

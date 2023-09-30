@@ -1,0 +1,29 @@
+.loader-ring {
+  font-size: 18px;
+  --ring-thickness: 3px;
+  --ring-color: #4fa4d1;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+.loader-ring:after {
+  content: "";
+  box-sizing: border-box;
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: var(--ring-thickness);
+  border-color: var(--ring-color) transparent;
+  animation: full-rotation 1.2s linear infinite;
+}
+@keyframes full-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

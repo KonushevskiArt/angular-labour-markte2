@@ -11,18 +11,43 @@ import { CreateVacancyPageComponent } from './modules/vacancies/pages/create-vac
 import { CreateSummaryPageComponent } from './modules/summaries/pages/create-summary-page/create-summary-page.component';
 import { EditVacancyPageComponent } from './modules/vacancies/pages/edit-vacancy-page/edit-vacancy-page.component';
 import { EditSummaryPageComponent } from './modules/summaries/pages/edit-summary-page/edit-summary-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vacancies', pathMatch: 'full'},
-  { path: 'vacancies', component: VacanciesPageComponent},
-  { path: 'vacancies/create', component: CreateVacancyPageComponent, pathMatch: 'full'},
-  { path: 'vacancies/edit/:id', component: EditVacancyPageComponent, pathMatch: 'full'},
+  { path: 'vacancies', component: VacanciesPageComponent, pathMatch: 'full'},
+  { 
+    path: 'vacancies/create', 
+    component: CreateVacancyPageComponent, 
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  { 
+    path: 'vacancies/edit/:id', 
+    component: EditVacancyPageComponent, 
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
   { path: 'vacancies/:id', component: VacancyPageComponent},
   { path: 'summaries', component: SummariesPageComponent},
-  { path: 'summaries/create', component: CreateSummaryPageComponent, pathMatch: 'full'},
-  { path: 'summaries/edit/:id', component: EditSummaryPageComponent, pathMatch: 'full'},
+  { 
+    path: 'summaries/create', 
+    component: CreateSummaryPageComponent, 
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  { 
+    path: 'summaries/edit/:id', 
+    component: EditSummaryPageComponent, 
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
   { path: 'summaries/:id', component: SummaryPageComponent},
-  { path: 'personal-cabinet', component: PersonalCabinetPageComponent},
+  { 
+    path: 'personal-cabinet', 
+    component: PersonalCabinetPageComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'about', component: AboutComponent},
   { path: '**', component: NotFoundComponent }
 ];

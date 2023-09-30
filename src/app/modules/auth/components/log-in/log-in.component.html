@@ -1,4 +1,5 @@
 <button
+  *ngIf="!isLoggedIn"
   (click)="openModal()"
   i18n-title="@@login-button-title"
   title="Registration"
@@ -7,43 +8,51 @@
   <span class="material-icons">login</span>
 </button>
 
-<div *ngIf="isOpen">
-  <app-modal [closeModal]="closeModal">
-    <form class="flex flex-col bg-slate-200  border-slate-400 py-10 px-10 rounded-md" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <h4 class="text-center mb-3 text-lg font-bold text-black">Log in</h4>
-
-      <label class="flex flex-col">
-        <span class="ml-1  dark:text-slate-900">email</span>
-        <div class="flex items-center gap-2">
-          <input 
-            class=" drop-shadow-sm mt-1 px-2" 
-            formControlName="email" 
-            type="text"
-            [ngClass]="{'border-2 border-red-500' : isValid('email')}"
-          >
-          <span class="material-icons  text-slate-600">email</span>
-          
-        </div>
-        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('email', 'required')">This field is required</span>
-        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('email', 'email')">This field must be email type </span>
-      </label>
-
-      <label class="flex flex-col mt-3">
-        <span class="ml-1 dark:text-slate-900">password</span>
-        <div class="flex items-center gap-2">
-          <input 
-            class=" drop-shadow-sm mt-1 px-2"
-            formControlName="password" 
-            type="text"
-            [ngClass]="{'border-2 border-red-500' : isValid('password')}"
-          >
-          <span class="material-icons text-slate-600">password</span>
-        </div>
-        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('password', 'required')">This field is required</span>
-        <span class="text-red-500 text-sm mt-1" *ngIf="hasError('password', 'minlength')">Min length 5 characters </span>
-      </label>
-
-      <button type="submit" class=" mt-5 disabled:opacity-50 button-blue-filled dark:hover:border-blue-600">submit</button>
-    </form>
-  </app-modal>
-</div>
+<ng-template [ngIf]="isOpen" >
+  <div>
+    <app-modal [closeModal]="closeModal">
+      <form class="flex flex-col bg-slate-200  border-slate-400 h-64 px-10 rounded-md" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h4 class="text-center mb-3 text-lg font-bold text-black">Log in</h4>
+  
+        <label class="flex flex-col">
+          <span class="ml-1  dark:text-slate-900">username</span>
+          <div class="flex items-center relative">
+            <input 
+              class=" drop-shadow-sm w-full mt-1 pl-7 pr-2" 
+              formControlName="username" 
+              type="text"
+              (focus)="hideFetchedError()"
+              [ngClass]="{'border-2 border-red-500' : isValid('username')}"
+            >
+            <span class="absolute top-2 left-1 material-icons text-[18px] text-slate-600">person</span>
+            
+          </div>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('username', 'required')">This field is required</span>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('username', 'minlength')">Min length 3 characters </span>
+        </label>
+  
+        <label class="flex flex-col mt-3">
+          <span class="ml-1 dark:text-slate-900">password</span>
+          <div class="flex items-center  relative">
+            <input 
+              class=" drop-shadow-sm  w-full mt-1 pl-7 pr-2"
+              formControlName="password" 
+              type="text"
+              (focus)="hideFetchedError()"
+              [ngClass]="{'border-2 border-red-500' : isValid('password')}"
+            >
+            <span class="material-icons text-[16px] absolute top-2 left-1  text-slate-600">password</span>
+          </div>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('password', 'required')">This field is required</span>
+          <span class="text-red-500 text-sm mt-1" *ngIf="hasError('password', 'minlength')">Min length 5 characters </span>
+        </label>
+  
+        <button type="submit" class=" mt-5 disabled:opacity-50 button-blue-filled dark:hover:border-blue-600">
+          submit
+        </button>
+        <app-spinner1 *ngIf="isLoading" class="mt-5" ></app-spinner1>
+        <span *ngIf="isFetchedError" class="text-red-500 text-md mt-3">{{fetchedErrorMessage}}</span>
+      </form>
+    </app-modal>
+  </div>
+</ng-template>

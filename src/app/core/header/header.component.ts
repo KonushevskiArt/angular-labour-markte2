@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from './../../modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: []
 })
 export class HeaderComponent {
+  constructor(private authService: AuthService) {
+    this.authService.userNameObserve$.subscribe((value: string) => {
+      this.userName = value;
+    })
+  }
+  
+  userName = '';
+  isLoggedIn = false;
 
   @Input() isDarkMode: boolean 
 

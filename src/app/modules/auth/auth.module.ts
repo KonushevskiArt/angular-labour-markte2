@@ -4,12 +4,15 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogOutComponent } from './components/log-out/log-out.component';
+
 
 
 @NgModule({
   declarations: [
     LogInComponent,
-    SignUpComponent, 
+    SignUpComponent,
+    LogOutComponent, 
   ],
   imports: [
     SharedModule,
@@ -20,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     LogInComponent,
     SignUpComponent,
+    LogOutComponent, 
   ]
 })
 export class AuthModule { }

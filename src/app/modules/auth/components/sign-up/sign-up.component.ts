@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { SignUpData, SignUpResponse } from '../../types';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,7 +9,11 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: []
 })
 export class SignUpComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.authService.loginObserve$.subscribe((value: boolean) => {
+      this.isLoggedIn = value;
+    })
+  }
 
   registerForm = this.fb.group({
     username: ['', [Validators.required]],
@@ -15,34 +21,65 @@ export class SignUpComponent {
     password: ['', [Validators.required, Validators.minLength(5)]]
   })
 
+  fetchedErrorMessage = '';
+  isLoggedIn = false;
   isSubmitted = false;
   isOpen = false;
+  isLoading = false;
+  isFetchedError = false;
 
   openModal = () => {
     this.isOpen = true;
-    console.log('open modal ');
   }
 
   closeModal = () => {
     this.isOpen = false;
-    console.log('close modal');
   }
 
   hasError = (fieldName: string, validationType: string) => {
     return this.registerForm.get(fieldName)?.hasError(validationType) &&
-    this.isSubmitted;
+    this.isSubmitted && this.registerForm.touched;
   }
 
   onSubmit = () => {
     console.log(this.registerForm.value);
     this.isSubmitted = true;
-    // this.registerForm.reset()
+    const {username, password, email} = this.registerForm.value
+    if (username && password && email) { 
+      this.isLoading = true;
+      this.authService.signupHTTP(this.registerForm.value as SignUpData).subscribe({
+        next:(data: SignUpResponse) => {
+          console.log('success sign up', data)
+          this.isLoading = false;
+          
+          this.registerForm.reset();
+          this.registerForm.markAsPristine();
+          this.registerForm.markAsUntouched();   
 
-    // service + redirect
+          this.isOpen = false;
+        },
+        error: error => {
+          console.dir(error)
+          if (error.status === 0) {
+            this.fetchedErrorMessage = 'Server error, try again later...'
+          }
+          if (error.status === 400) {
+            if (error.error.notUniqueEmail) {
+              this.fetchedErrorMessage = 'User with this email is already exist'
+            }
+            if (error.error.notUniqueName) {
+              this.fetchedErrorMessage = 'User with this name is already exist'
+            }
+          }
+          this.isLoading = false; 
+          this.isFetchedError = true;
+        }
+      })
+    }
   }
 
   isValid = (fieldName: string) => {
-    return this.registerForm.get(fieldName)?.invalid && this.isSubmitted;
+    return this.registerForm.get(fieldName)?.invalid && this.isSubmitted && this.registerForm.touched;
   }
 
 }
